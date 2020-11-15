@@ -11,6 +11,7 @@
 // MARK: Imports
 import UIKit
 import SwiftyVIPER
+import SnapKit
 
 // MARK: Protocols
 protocol SearchPresenterViewProtocol: class {
@@ -27,8 +28,11 @@ class SearchViewController: UIViewController {
     let presenter: SearchViewPresenterProtocol
     
     // MARK: Variables
+    private let _searchBlockDelay: TimeInterval = 0.5
     
     // MARK: Outlets
+    var searchBar = UISearchBar(frame: .zero)
+    var tableView = UITableView(frame: .zero, style: .grouped)
     
     // MARK: Inits
     init(presenter: SearchViewPresenterProtocol) {
@@ -44,11 +48,43 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewLoaded()
-        
-        view.backgroundColor = .white
+        _setupView()
     }
     
     // MARK: - Custom Functions
+    private func _setupView() {
+        view.backgroundColor = .white
+        view.addSubview(searchBar)
+        view.addSubview(tableView)
+        
+        searchBar.snp.makeConstraints { (make) in
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.left.equalTo(view.safeAreaLayoutGuide).offset(16)
+            make.bottom.equalTo(tableView.snp.top)
+            make.right.equalTo(view.safeAreaLayoutGuide).offset(-16)
+        }
+        
+        tableView.snp.makeConstraints { (make) in
+            make.top.equalTo(searchBar.snp.bottom)
+            make.left.equalTo(view.safeAreaLayoutGuide)
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
+            make.right.equalTo(view.safeAreaLayoutGuide)
+        }
+        
+        view.setNeedsUpdateConstraints()
+        
+        _setupSearchBar()
+        _setupTableView()
+    }
+    
+    private func _setupSearchBar() {
+        searchBar.searchBarStyle = .minimal
+        searchBar.sizeToFit()
+    }
+    
+    private func _setupTableView() {
+        tableView.backgroundColor = .yellow
+    }
     
     // MARK: Outlet Action
 }
