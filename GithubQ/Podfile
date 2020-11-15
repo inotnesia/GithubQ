@@ -1,0 +1,30 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '12.0'
+workspace 'GithubQ'
+
+target 'GithubQ' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  #use_frameworks!
+  use_modular_headers!
+  inhibit_all_warnings!
+
+  # Pods for GithubQ
+  pod 'SwiftLint'
+  pod 'SwiftyVIPER'
+  pod 'SnapKit', '~> 5.0.0'
+  pod 'Kingfisher', '5.12.0'
+  #pod 'RxCocoa', '5.0.1'
+  #pod 'RxSwift', '5.0.1'
+  pod 'FLEX', '3.1.1', :configurations => ['Debug']
+
+  target 'GithubQTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'GithubQUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
