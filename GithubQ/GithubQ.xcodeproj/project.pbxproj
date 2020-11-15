@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		183D09AE2560ECC7009BDBF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D09AD2560ECC7009BDBF5 /* AppDelegate.swift */; };
-		183D09B02560ECC7009BDBF5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D09AF2560ECC7009BDBF5 /* ViewController.swift */; };
-		183D09B32560ECC7009BDBF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183D09B12560ECC7009BDBF5 /* Main.storyboard */; };
 		183D09B52560ECCA009BDBF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 183D09B42560ECCA009BDBF5 /* Assets.xcassets */; };
 		183D09B82560ECCA009BDBF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183D09B62560ECCA009BDBF5 /* LaunchScreen.storyboard */; };
 		183D09C32560ECCA009BDBF5 /* GithubQTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D09C22560ECCA009BDBF5 /* GithubQTests.swift */; };
 		183D09CE2560ECCA009BDBF5 /* GithubQUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D09CD2560ECCA009BDBF5 /* GithubQUITests.swift */; };
+		18D41DE225612E4200658A6B /* SearchModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D41DD925612E4200658A6B /* SearchModule.swift */; };
+		18D41DE325612E4200658A6B /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D41DDB25612E4200658A6B /* SearchPresenter.swift */; };
+		18D41DE425612E4200658A6B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D41DDD25612E4200658A6B /* SearchViewController.swift */; };
+		18D41DE525612E4200658A6B /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D41DDF25612E4200658A6B /* SearchInteractor.swift */; };
+		18D41DE625612E4200658A6B /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D41DE125612E4200658A6B /* SearchRouter.swift */; };
 		9E048E4B76759BF822861B85 /* libPods-GithubQTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0377C2195FAE795F4119456 /* libPods-GithubQTests.a */; };
 		AEE321C7BAB82E3946E01BC2 /* libPods-GithubQ.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78EBA3AE2E393F086830D97B /* libPods-GithubQ.a */; };
 		FEB661A9773D3D94F23D145E /* libPods-GithubQUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4F79F891E022007B2A2DAAD /* libPods-GithubQUITests.a */; };
@@ -39,8 +42,6 @@
 /* Begin PBXFileReference section */
 		183D09AA2560ECC7009BDBF5 /* GithubQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		183D09AD2560ECC7009BDBF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		183D09AF2560ECC7009BDBF5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		183D09B22560ECC7009BDBF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		183D09B42560ECCA009BDBF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		183D09B72560ECCA009BDBF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		183D09B92560ECCA009BDBF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -50,6 +51,11 @@
 		183D09C92560ECCA009BDBF5 /* GithubQUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GithubQUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		183D09CD2560ECCA009BDBF5 /* GithubQUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubQUITests.swift; sourceTree = "<group>"; };
 		183D09CF2560ECCA009BDBF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18D41DD925612E4200658A6B /* SearchModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchModule.swift; sourceTree = "<group>"; };
+		18D41DDB25612E4200658A6B /* SearchPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		18D41DDD25612E4200658A6B /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		18D41DDF25612E4200658A6B /* SearchInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
+		18D41DE125612E4200658A6B /* SearchRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
 		625A4A156D518D4B0EB03D01 /* Pods-GithubQTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubQTests.release.xcconfig"; path = "Target Support Files/Pods-GithubQTests/Pods-GithubQTests.release.xcconfig"; sourceTree = "<group>"; };
 		7879B72A9F5C0D1E5633039F /* Pods-GithubQUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubQUITests.release.xcconfig"; path = "Target Support Files/Pods-GithubQUITests/Pods-GithubQUITests.release.xcconfig"; sourceTree = "<group>"; };
 		78EBA3AE2E393F086830D97B /* libPods-GithubQ.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GithubQ.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,9 +120,9 @@
 		183D09AC2560ECC7009BDBF5 /* GithubQ */ = {
 			isa = PBXGroup;
 			children = (
+				18D41DE72561304500658A6B /* Services */,
+				18D41DD425612DED00658A6B /* Modules */,
 				183D09AD2560ECC7009BDBF5 /* AppDelegate.swift */,
-				183D09AF2560ECC7009BDBF5 /* ViewController.swift */,
-				183D09B12560ECC7009BDBF5 /* Main.storyboard */,
 				183D09B42560ECCA009BDBF5 /* Assets.xcassets */,
 				183D09B62560ECCA009BDBF5 /* LaunchScreen.storyboard */,
 				183D09B92560ECCA009BDBF5 /* Info.plist */,
@@ -142,6 +148,73 @@
 			path = GithubQUITests;
 			sourceTree = "<group>";
 		};
+		18D41DD425612DED00658A6B /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				18D41DD725612E4200658A6B /* Search */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		18D41DD725612E4200658A6B /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				18D41DD825612E4200658A6B /* Module */,
+				18D41DDA25612E4200658A6B /* Presenter */,
+				18D41DDC25612E4200658A6B /* View */,
+				18D41DDE25612E4200658A6B /* Interactor */,
+				18D41DE025612E4200658A6B /* Router */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		18D41DD825612E4200658A6B /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				18D41DD925612E4200658A6B /* SearchModule.swift */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		18D41DDA25612E4200658A6B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				18D41DDB25612E4200658A6B /* SearchPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		18D41DDC25612E4200658A6B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18D41DDD25612E4200658A6B /* SearchViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		18D41DDE25612E4200658A6B /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				18D41DDF25612E4200658A6B /* SearchInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		18D41DE025612E4200658A6B /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				18D41DE125612E4200658A6B /* SearchRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		18D41DE72561304500658A6B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		9AE5B747C3CDD6346DE907B0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,7 +225,6 @@
 				AF8EBFF03922ACBB51B8325E /* Pods-GithubQUITests.debug.xcconfig */,
 				7879B72A9F5C0D1E5633039F /* Pods-GithubQUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -275,7 +347,6 @@
 			files = (
 				183D09B82560ECCA009BDBF5 /* LaunchScreen.storyboard in Resources */,
 				183D09B52560ECCA009BDBF5 /* Assets.xcassets in Resources */,
-				183D09B32560ECC7009BDBF5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,7 +440,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				183D09B02560ECC7009BDBF5 /* ViewController.swift in Sources */,
+				18D41DE525612E4200658A6B /* SearchInteractor.swift in Sources */,
+				18D41DE425612E4200658A6B /* SearchViewController.swift in Sources */,
+				18D41DE225612E4200658A6B /* SearchModule.swift in Sources */,
+				18D41DE625612E4200658A6B /* SearchRouter.swift in Sources */,
+				18D41DE325612E4200658A6B /* SearchPresenter.swift in Sources */,
 				183D09AE2560ECC7009BDBF5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,14 +481,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		183D09B12560ECC7009BDBF5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				183D09B22560ECC7009BDBF5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		183D09B62560ECCA009BDBF5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
