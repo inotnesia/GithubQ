@@ -107,6 +107,7 @@ class SearchViewController: UIViewController {
         _setupTableView()
         _setupActivityIndicator()
         _setupInfoLabel()
+        _setupSortButton()
     }
     
     private func _setupSearchBar() {
@@ -139,7 +140,15 @@ class SearchViewController: UIViewController {
         }).disposed(by: _disposeBag)
     }
     
+    private func _setupSortButton() {
+        let button = UIBarButtonItem(image: UIImage(named: "filter"), style: .plain, target: self, action: #selector(_sortButtonTapped(sender:)))
+        navigationItem.setRightBarButton(button, animated: true)
+    }
+    
     // MARK: Outlet Action
+    @objc private func _sortButtonTapped(sender: UIBarButtonItem) {
+        print("Sort here")
+    }
 }
 
 extension SearchViewController: SearchPresenterViewProtocol {
