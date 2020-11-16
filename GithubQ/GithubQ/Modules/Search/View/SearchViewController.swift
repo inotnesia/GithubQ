@@ -12,11 +12,14 @@
 import UIKit
 import SwiftyVIPER
 import SnapKit
+import RxCocoa
+import RxSwift
 
 // MARK: Protocols
 protocol SearchPresenterViewProtocol: class {
     // Search Presenter to View Protocol
     func set(title: String?)
+    func performUpdates(animated: Bool)
 }
 
 // MARK: -
@@ -26,13 +29,34 @@ class SearchViewController: UIViewController {
     
     // MARK: - Constants
     let presenter: SearchViewPresenterProtocol
+    private let _disposeBag = DisposeBag()
     
     // MARK: Variables
     private let _searchBlockDelay: TimeInterval = 0.5
+    private var _page = 1
+    private var _obsUserResponse: BehaviorRelay<UserResponse?>?
     
     // MARK: Outlets
     var searchBar = UISearchBar(frame: .zero)
-    var tableView = UITableView(frame: .zero, style: .grouped)
+    var tableView = UITableView(frame: .zero, style: .plain)
+    
+    lazy var activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
+        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = true
+        return activityIndicator
+    }()
+    
+    lazy var infoLabel: UILabel = {
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 32, height: 40))
+        label.backgroundColor = .clear
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textAlignment = .center
+        label.center = view.center
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        return label
+    }()
     
     // MARK: Inits
     init(presenter: SearchViewPresenterProtocol) {
@@ -47,6 +71,9 @@ class SearchViewController: UIViewController {
     // MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        _obsUserResponse = presenter.getObsUserResponse()
+        
         presenter.viewLoaded()
         _setupView()
     }
@@ -71,19 +98,45 @@ class SearchViewController: UIViewController {
             make.right.equalTo(view.safeAreaLayoutGuide)
         }
         
+        view.addSubview(activityIndicator)
+        view.addSubview(infoLabel)
+        
         view.setNeedsUpdateConstraints()
         
         _setupSearchBar()
         _setupTableView()
+        _setupActivityIndicator()
+        _setupInfoLabel()
     }
     
     private func _setupSearchBar() {
         searchBar.searchBarStyle = .minimal
         searchBar.sizeToFit()
+        searchBar.delegate = self
     }
     
     private func _setupTableView() {
-        tableView.backgroundColor = .yellow
+        tableView.backgroundColor = .white
+        tableView.showsVerticalScrollIndicator = false
+        tableView.showsHorizontalScrollIndicator = false
+        tableView.keyboardDismissMode = .onDrag
+        tableView.estimatedRowHeight = 46
+        tableView.register(UINib(nibName: "ImageTitleTableViewCell", bundle: nil), forCellReuseIdentifier: "ImageTitleTableViewCell")
+        tableView.register(UINib(nibName: "TitleHeaderFooterView", bundle: nil), forHeaderFooterViewReuseIdentifier: "TitleHeaderFooterView")
+        tableView.tableFooterView = UIView()
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
+    private func _setupActivityIndicator() {
+        presenter.getFetchingState().drive(activityIndicator.rx.isAnimating).disposed(by: _disposeBag)
+    }
+    
+    private func _setupInfoLabel() {
+        presenter.getErrorInfo().drive(onNext: {[unowned self] (error) in
+            self.infoLabel.isHidden = !self.presenter.getErrorState()
+            self.infoLabel.text = error
+        }).disposed(by: _disposeBag)
     }
     
     // MARK: Outlet Action
@@ -94,5 +147,52 @@ extension SearchViewController: SearchPresenterViewProtocol {
     // MARK: - Search Presenter to View Protocol
     func set(title: String?) {
         self.title = title
+    }
+    
+    func performUpdates(animated: Bool) {
+        tableView.reloadData()
+    }
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.setNewKeyword(_:)), object: searchBar)
+        self.perform(#selector(self.setNewKeyword(_:)), with: searchBar, afterDelay: _searchBlockDelay)
+    }
+    
+    @objc func setNewKeyword(_ searchBar: UISearchBar) {
+        _page = 1
+        presenter.search(keyword: searchBar.text ?? "", page: _page)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
+}
+
+extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return _obsUserResponse?.value?.items.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ImageTitleTableViewCell.self)) as? ImageTitleTableViewCell else { return UITableViewCell() }
+        let user = _obsUserResponse?.value?.items[indexPath.row]
+        cell.setupView(imageUrl: user?.avatarUrl, text: user?.login)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return searchBar.text?.isEmpty ?? true ? 0 : 22
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "TitleHeaderFooterView") as? TitleHeaderFooterView else { return nil }
+        headerView.titleLabel.text = searchBar.text?.isEmpty ?? true ? "" : "Total results \(_obsUserResponse?.value?.totalCount ?? 0)"
+        return headerView
     }
 }

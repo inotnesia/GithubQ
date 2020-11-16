@@ -17,6 +17,13 @@
 		18D41DE425612E4200658A6B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D41DDD25612E4200658A6B /* SearchViewController.swift */; };
 		18D41DE525612E4200658A6B /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D41DDF25612E4200658A6B /* SearchInteractor.swift */; };
 		18D41DE625612E4200658A6B /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D41DE125612E4200658A6B /* SearchRouter.swift */; };
+		18D41DEA2561CE0C00658A6B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D41DE92561CE0C00658A6B /* User.swift */; };
+		18D41DEC2561CF5A00658A6B /* GithubServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D41DEB2561CF5A00658A6B /* GithubServiceProtocol.swift */; };
+		18D41DEE2561D07800658A6B /* GithubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D41DED2561D07800658A6B /* GithubService.swift */; };
+		18D41DF12561E90000658A6B /* TitleHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D41DF02561E90000658A6B /* TitleHeaderFooterView.swift */; };
+		18D41DF32561E9F300658A6B /* TitleHeaderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D41DF22561E9F300658A6B /* TitleHeaderFooterView.xib */; };
+		18D41DF62561EB4800658A6B /* ImageTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D41DF42561EB4800658A6B /* ImageTitleTableViewCell.swift */; };
+		18D41DF72561EB4800658A6B /* ImageTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D41DF52561EB4800658A6B /* ImageTitleTableViewCell.xib */; };
 		9E048E4B76759BF822861B85 /* libPods-GithubQTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0377C2195FAE795F4119456 /* libPods-GithubQTests.a */; };
 		AEE321C7BAB82E3946E01BC2 /* libPods-GithubQ.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78EBA3AE2E393F086830D97B /* libPods-GithubQ.a */; };
 		FEB661A9773D3D94F23D145E /* libPods-GithubQUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4F79F891E022007B2A2DAAD /* libPods-GithubQUITests.a */; };
@@ -56,6 +63,13 @@
 		18D41DDD25612E4200658A6B /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		18D41DDF25612E4200658A6B /* SearchInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
 		18D41DE125612E4200658A6B /* SearchRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
+		18D41DE92561CE0C00658A6B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		18D41DEB2561CF5A00658A6B /* GithubServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubServiceProtocol.swift; sourceTree = "<group>"; };
+		18D41DED2561D07800658A6B /* GithubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubService.swift; sourceTree = "<group>"; };
+		18D41DF02561E90000658A6B /* TitleHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleHeaderFooterView.swift; sourceTree = "<group>"; };
+		18D41DF22561E9F300658A6B /* TitleHeaderFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleHeaderFooterView.xib; sourceTree = "<group>"; };
+		18D41DF42561EB4800658A6B /* ImageTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTitleTableViewCell.swift; sourceTree = "<group>"; };
+		18D41DF52561EB4800658A6B /* ImageTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageTitleTableViewCell.xib; sourceTree = "<group>"; };
 		625A4A156D518D4B0EB03D01 /* Pods-GithubQTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubQTests.release.xcconfig"; path = "Target Support Files/Pods-GithubQTests/Pods-GithubQTests.release.xcconfig"; sourceTree = "<group>"; };
 		7879B72A9F5C0D1E5633039F /* Pods-GithubQUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubQUITests.release.xcconfig"; path = "Target Support Files/Pods-GithubQUITests/Pods-GithubQUITests.release.xcconfig"; sourceTree = "<group>"; };
 		78EBA3AE2E393F086830D97B /* libPods-GithubQ.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GithubQ.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +134,7 @@
 		183D09AC2560ECC7009BDBF5 /* GithubQ */ = {
 			isa = PBXGroup;
 			children = (
+				18D41DE82561CDB900658A6B /* Entities */,
 				18D41DE72561304500658A6B /* Services */,
 				18D41DD425612DED00658A6B /* Modules */,
 				183D09AD2560ECC7009BDBF5 /* AppDelegate.swift */,
@@ -187,6 +202,7 @@
 		18D41DDC25612E4200658A6B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				18D41DEF2561E87B00658A6B /* SubViews */,
 				18D41DDD25612E4200658A6B /* SearchViewController.swift */,
 			);
 			path = View;
@@ -211,8 +227,29 @@
 		18D41DE72561304500658A6B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				18D41DEB2561CF5A00658A6B /* GithubServiceProtocol.swift */,
+				18D41DED2561D07800658A6B /* GithubService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		18D41DE82561CDB900658A6B /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				18D41DE92561CE0C00658A6B /* User.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		18D41DEF2561E87B00658A6B /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				18D41DF02561E90000658A6B /* TitleHeaderFooterView.swift */,
+				18D41DF22561E9F300658A6B /* TitleHeaderFooterView.xib */,
+				18D41DF42561EB4800658A6B /* ImageTitleTableViewCell.swift */,
+				18D41DF52561EB4800658A6B /* ImageTitleTableViewCell.xib */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 		9AE5B747C3CDD6346DE907B0 /* Pods */ = {
@@ -345,7 +382,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18D41DF72561EB4800658A6B /* ImageTitleTableViewCell.xib in Resources */,
 				183D09B82560ECCA009BDBF5 /* LaunchScreen.storyboard in Resources */,
+				18D41DF32561E9F300658A6B /* TitleHeaderFooterView.xib in Resources */,
 				183D09B52560ECCA009BDBF5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -444,8 +483,13 @@
 				18D41DE425612E4200658A6B /* SearchViewController.swift in Sources */,
 				18D41DE225612E4200658A6B /* SearchModule.swift in Sources */,
 				18D41DE625612E4200658A6B /* SearchRouter.swift in Sources */,
+				18D41DF12561E90000658A6B /* TitleHeaderFooterView.swift in Sources */,
+				18D41DEC2561CF5A00658A6B /* GithubServiceProtocol.swift in Sources */,
+				18D41DEE2561D07800658A6B /* GithubService.swift in Sources */,
 				18D41DE325612E4200658A6B /* SearchPresenter.swift in Sources */,
 				183D09AE2560ECC7009BDBF5 /* AppDelegate.swift in Sources */,
+				18D41DF62561EB4800658A6B /* ImageTitleTableViewCell.swift in Sources */,
+				18D41DEA2561CE0C00658A6B /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

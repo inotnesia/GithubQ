@@ -11,16 +11,22 @@
 // MARK: Imports
 import UIKit
 import SwiftyVIPER
+import RxCocoa
 
 // MARK: Protocols
 protocol SearchViewPresenterProtocol: ViewPresenterProtocol {
     // Search View to Presenter Protocol
-    
+    func getObsUserResponse() -> BehaviorRelay<UserResponse?>
+    func getFetchingState() -> Driver<Bool>
+    func getErrorState() -> Bool
+    func getErrorInfo() -> Driver<String?>
+    func search(keyword: String, page: Int)
 }
 
 protocol SearchInteractorPresenterProtocol: class {
     // Search Interactor to Presenter Protocol
     func set(title: String?)
+    func performUpdates(animated: Bool)
 }
 
 // MARK: -
@@ -52,9 +58,32 @@ extension SearchPresenter: SearchInteractorPresenterProtocol {
     func set(title: String?) {
         view?.set(title: title)
     }
+    
+    func performUpdates(animated: Bool) {
+        view?.performUpdates(animated: animated)
+    }
 }
 
 extension SearchPresenter: SearchViewPresenterProtocol {
     
     // MARK: - Search View to Presenter Protocol
+    func getObsUserResponse() -> BehaviorRelay<UserResponse?> {
+        return interactor.getObsUserResponse()
+    }
+    
+    func getFetchingState() -> Driver<Bool> {
+        return interactor.getFetchingState()
+    }
+    
+    func getErrorState() -> Bool {
+        return interactor.getErrorState()
+    }
+    
+    func getErrorInfo() -> Driver<String?> {
+        return interactor.getErrorInfo()
+    }
+    
+    func search(keyword: String, page: Int) {
+        interactor.fetchUsers(keyword: keyword, page: page)
+    }
 }
