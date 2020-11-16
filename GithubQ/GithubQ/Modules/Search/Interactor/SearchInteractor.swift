@@ -41,6 +41,7 @@ final class SearchInteractor {
     private var _obsUserResponse = BehaviorRelay<UserResponse?>(value: nil)
     private var _obsSortItem: BehaviorRelay<[SortItem]> = BehaviorRelay(value: [])
     private var _isAscending = true
+    private var _keyword = ""
     
     var isFetching: Driver<Bool> {
         return _isFetching.asDriver()
@@ -90,9 +91,20 @@ extension SearchInteractor: SearchPresenterInteractorProtocol {
     
     func fetchUsers(keyword: String, page: Int) {
         if !keyword.isEmpty {
+            var recentData = _obsUserResponse.value?.items
+            if keyword != _keyword {
+                _keyword = keyword
+                _obsUserResponse.accept(nil)
+                recentData = []
+            } else {
+                let totalPages = ceilf(Float(_obsUserResponse.value?.totalCount ?? 0) / 30.0)
+                if page > Int(totalPages) {
+                    return
+                }
+            }
+            
             _isFetching.accept(true)
             _error.accept(nil)
-            _obsUserResponse.accept(nil)
             
             let params = ["q": "\(keyword)+in:login", "page": "\(page)"]
             
@@ -104,7 +116,8 @@ extension SearchInteractor: SearchPresenterInteractorProtocol {
                 } else {
                     arrUser.sort { (user1, user2) in return user1.login > user2.login }
                 }
-                data.items = arrUser
+                recentData?.append(contentsOf: arrUser)
+                data.items = recentData ?? []
                 
                 self?._isFetching.accept(false)
                 self?._obsUserResponse.accept(data)

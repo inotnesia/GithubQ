@@ -88,9 +88,9 @@ class SearchViewController: UIViewController {
         
         searchBar.snp.makeConstraints { (make) in
             make.top.equalTo(view.safeAreaLayoutGuide)
-            make.left.equalTo(view.safeAreaLayoutGuide).offset(16)
+            make.left.equalTo(view.safeAreaLayoutGuide).offset(8)
             make.bottom.equalTo(tableView.snp.top)
-            make.right.equalTo(view.safeAreaLayoutGuide).offset(-16)
+            make.right.equalTo(view.safeAreaLayoutGuide).offset(-8)
         }
         
         tableView.snp.makeConstraints { (make) in
@@ -129,6 +129,7 @@ class SearchViewController: UIViewController {
         tableView.tableFooterView = UIView()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.prefetchDataSource = self
     }
     
     private func _setupActivityIndicator() {
@@ -145,6 +146,10 @@ class SearchViewController: UIViewController {
     private func _setupSortButton() {
         let button = UIBarButtonItem(image: UIImage(named: "filter"), style: .plain, target: self, action: #selector(_sortButtonTapped(sender:)))
         navigationItem.setRightBarButton(button, animated: true)
+    }
+    
+    private func _isLoadingCell(for indexPath: IndexPath) -> Bool {
+        return indexPath.row + 1 >= _obsUserResponse?.value?.items.count ?? 0
     }
     
     // MARK: Outlet Action
@@ -187,7 +192,7 @@ extension SearchViewController: UISearchBarDelegate {
     }
 }
 
-extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
+extension SearchViewController: UITableViewDelegate, UITableViewDataSource, UITableViewDataSourcePrefetching {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -198,8 +203,11 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ImageTitleTableViewCell.self)) as? ImageTitleTableViewCell else { return UITableViewCell() }
-        let user = _obsUserResponse?.value?.items[indexPath.row]
-        cell.setupView(imageUrl: user?.avatarUrl, text: user?.login)
+        if !_isLoadingCell(for: indexPath) {
+            let user = _obsUserResponse?.value?.items[indexPath.row]
+            cell.setupView(imageUrl: user?.avatarUrl, text: user?.login)
+        }
+        
         return cell
     }
     
@@ -211,6 +219,13 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "TitleHeaderFooterView") as? TitleHeaderFooterView else { return nil }
         headerView.titleLabel.text = searchBar.text?.isEmpty ?? true ? "" : "Total results \(_obsUserResponse?.value?.totalCount ?? 0)"
         return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        if indexPaths.contains(where: _isLoadingCell) && !activityIndicator.isAnimating {
+            _page += 1
+            presenter.search(keyword: searchBar.text ?? "", page: _page)
+        }
     }
 }
 

@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CategoryView" customModule="MovieQ" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CategoryView" customModule="GithubQ" customModuleProvider="target">
             <connections>
                 <outlet property="backgroundView" destination="1mP-Fg-LEG" id="eQL-YC-fv4"/>
                 <outlet property="contentView" destination="A6t-Uv-Oxd" id="YK6-96-CCY"/>
@@ -36,7 +36,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A6t-Uv-Oxd">
                     <rect key="frame" x="0.0" y="642" width="414" height="220"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYy-jz-0bO">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected Sort" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYy-jz-0bO">
                             <rect key="frame" x="16" y="0.0" width="382" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="ceB-Yz-NNs"/>

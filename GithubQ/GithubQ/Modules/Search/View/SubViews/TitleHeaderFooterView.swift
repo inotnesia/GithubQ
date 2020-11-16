@@ -14,9 +14,7 @@ class TitleHeaderFooterView: UITableViewHeaderFooterView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = .white
         titleLabel.font = UIFont.systemFont(ofSize: 14)
         titleLabel.textColor = .lightGray
     }
-
 }
