@@ -21,6 +21,8 @@ protocol SearchViewPresenterProtocol: ViewPresenterProtocol {
     func getErrorState() -> Bool
     func getErrorInfo() -> Driver<String?>
     func search(keyword: String, page: Int)
+    func getObsSortOption() -> BehaviorRelay<[SortItem]>
+    func setSort(index: Int)
 }
 
 protocol SearchInteractorPresenterProtocol: class {
@@ -85,5 +87,13 @@ extension SearchPresenter: SearchViewPresenterProtocol {
     
     func search(keyword: String, page: Int) {
         interactor.fetchUsers(keyword: keyword, page: page)
+    }
+    
+    func getObsSortOption() -> BehaviorRelay<[SortItem]> {
+        return interactor.getObsSortOption()
+    }
+    
+    func setSort(index: Int) {
+        interactor.setSort(index: index)
     }
 }

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CategoryView" customModule="MovieQ" customModuleProvider="target">
+            <connections>
+                <outlet property="backgroundView" destination="1mP-Fg-LEG" id="eQL-YC-fv4"/>
+                <outlet property="contentView" destination="A6t-Uv-Oxd" id="YK6-96-CCY"/>
+                <outlet property="smallBgView" destination="aNa-er-uxJ" id="0KY-Fc-tKt"/>
+                <outlet property="tableView" destination="M6R-J2-axl" id="CaK-n1-dp0"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1mP-Fg-LEG">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aNa-er-uxJ">
+                    <rect key="frame" x="0.0" y="856" width="414" height="40"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="M8d-ud-Ixt"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A6t-Uv-Oxd">
+                    <rect key="frame" x="0.0" y="642" width="414" height="220"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYy-jz-0bO">
+                            <rect key="frame" x="16" y="0.0" width="382" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="ceB-Yz-NNs"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iqa-ts-t05">
+                            <rect key="frame" x="0.0" y="44" width="414" height="1"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="Khm-2A-yRR"/>
+                            </constraints>
+                        </view>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="M6R-J2-axl">
+                            <rect key="frame" x="0.0" y="45" width="414" height="175"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="iqa-ts-t05" secondAttribute="trailing" id="2LR-ZL-EFZ"/>
+                        <constraint firstItem="M6R-J2-axl" firstAttribute="leading" secondItem="A6t-Uv-Oxd" secondAttribute="leading" id="4Lh-au-x9T"/>
+                        <constraint firstItem="M6R-J2-axl" firstAttribute="top" secondItem="iqa-ts-t05" secondAttribute="bottom" id="5Es-4m-dUB"/>
+                        <constraint firstItem="iqa-ts-t05" firstAttribute="top" secondItem="XYy-jz-0bO" secondAttribute="bottom" id="9dq-63-uT6"/>
+                        <constraint firstItem="XYy-jz-0bO" firstAttribute="top" secondItem="A6t-Uv-Oxd" secondAttribute="top" id="JjB-z4-pIo"/>
+                        <constraint firstAttribute="trailing" secondItem="XYy-jz-0bO" secondAttribute="trailing" constant="16" id="NaJ-Yv-2Cc"/>
+                        <constraint firstAttribute="trailing" secondItem="M6R-J2-axl" secondAttribute="trailing" id="TJ5-LN-Q0T"/>
+                        <constraint firstItem="iqa-ts-t05" firstAttribute="leading" secondItem="A6t-Uv-Oxd" secondAttribute="leading" id="VMt-2U-B9H"/>
+                        <constraint firstAttribute="bottom" secondItem="M6R-J2-axl" secondAttribute="bottom" id="YOa-4W-OWQ"/>
+                        <constraint firstItem="XYy-jz-0bO" firstAttribute="leading" secondItem="A6t-Uv-Oxd" secondAttribute="leading" constant="16" id="eVl-Bc-Y0l"/>
+                        <constraint firstAttribute="height" constant="220" id="vq5-4P-ua3"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="aNa-er-uxJ" secondAttribute="bottom" id="9fF-jb-6pG"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="1mP-Fg-LEG" secondAttribute="trailing" id="G4T-Ep-x3D"/>
+                <constraint firstItem="1mP-Fg-LEG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="LZ3-cy-4LR"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="A6t-Uv-Oxd" secondAttribute="bottom" id="PUi-kg-qVV"/>
+                <constraint firstItem="aNa-er-uxJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Qjh-gx-2mK"/>
+                <constraint firstAttribute="bottom" secondItem="1mP-Fg-LEG" secondAttribute="bottom" id="RLg-ar-Rbk"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="A6t-Uv-Oxd" secondAttribute="trailing" id="VzG-83-qhp"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="aNa-er-uxJ" secondAttribute="trailing" id="dNd-3y-zIF"/>
+                <constraint firstItem="1mP-Fg-LEG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="hO9-NI-NZh"/>
+                <constraint firstItem="A6t-Uv-Oxd" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="urF-rx-WX3"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+</document>

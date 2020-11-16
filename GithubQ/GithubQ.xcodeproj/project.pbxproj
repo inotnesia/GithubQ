@@ -24,6 +24,14 @@
 		18D41DF32561E9F300658A6B /* TitleHeaderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D41DF22561E9F300658A6B /* TitleHeaderFooterView.xib */; };
 		18D41DF62561EB4800658A6B /* ImageTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D41DF42561EB4800658A6B /* ImageTitleTableViewCell.swift */; };
 		18D41DF72561EB4800658A6B /* ImageTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D41DF52561EB4800658A6B /* ImageTitleTableViewCell.xib */; };
+		18D41DFF256208AD00658A6B /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D41DFB256208AD00658A6B /* CategoryView.swift */; };
+		18D41E00256208AD00658A6B /* CategoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D41DFC256208AD00658A6B /* CategoryView.xib */; };
+		18D41E01256208AD00658A6B /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D41DFD256208AD00658A6B /* CategoryTableViewCell.swift */; };
+		18D41E02256208AD00658A6B /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D41DFE256208AD00658A6B /* CategoryTableViewCell.xib */; };
+		18D41E062562090000658A6B /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D41E042562090000658A6B /* NibLoadable.swift */; };
+		18D41E072562090000658A6B /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D41E052562090000658A6B /* Modal.swift */; };
+		18D41E092562095100658A6B /* SortItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D41E082562095100658A6B /* SortItem.swift */; };
+		18D41E0C25620D5200658A6B /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D41E0B25620D5200658A6B /* Extension+UIView.swift */; };
 		9E048E4B76759BF822861B85 /* libPods-GithubQTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0377C2195FAE795F4119456 /* libPods-GithubQTests.a */; };
 		AEE321C7BAB82E3946E01BC2 /* libPods-GithubQ.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78EBA3AE2E393F086830D97B /* libPods-GithubQ.a */; };
 		FEB661A9773D3D94F23D145E /* libPods-GithubQUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4F79F891E022007B2A2DAAD /* libPods-GithubQUITests.a */; };
@@ -70,6 +78,14 @@
 		18D41DF22561E9F300658A6B /* TitleHeaderFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleHeaderFooterView.xib; sourceTree = "<group>"; };
 		18D41DF42561EB4800658A6B /* ImageTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTitleTableViewCell.swift; sourceTree = "<group>"; };
 		18D41DF52561EB4800658A6B /* ImageTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageTitleTableViewCell.xib; sourceTree = "<group>"; };
+		18D41DFB256208AD00658A6B /* CategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		18D41DFC256208AD00658A6B /* CategoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryView.xib; sourceTree = "<group>"; };
+		18D41DFD256208AD00658A6B /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		18D41DFE256208AD00658A6B /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
+		18D41E042562090000658A6B /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
+		18D41E052562090000658A6B /* Modal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
+		18D41E082562095100658A6B /* SortItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortItem.swift; sourceTree = "<group>"; };
+		18D41E0B25620D5200658A6B /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
 		625A4A156D518D4B0EB03D01 /* Pods-GithubQTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubQTests.release.xcconfig"; path = "Target Support Files/Pods-GithubQTests/Pods-GithubQTests.release.xcconfig"; sourceTree = "<group>"; };
 		7879B72A9F5C0D1E5633039F /* Pods-GithubQUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubQUITests.release.xcconfig"; path = "Target Support Files/Pods-GithubQUITests/Pods-GithubQUITests.release.xcconfig"; sourceTree = "<group>"; };
 		78EBA3AE2E393F086830D97B /* libPods-GithubQ.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GithubQ.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +150,7 @@
 		183D09AC2560ECC7009BDBF5 /* GithubQ */ = {
 			isa = PBXGroup;
 			children = (
+				18D41DF82562086D00658A6B /* Utils */,
 				18D41DE82561CDB900658A6B /* Entities */,
 				18D41DE72561304500658A6B /* Services */,
 				18D41DD425612DED00658A6B /* Modules */,
@@ -237,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				18D41DE92561CE0C00658A6B /* User.swift */,
+				18D41E082562095100658A6B /* SortItem.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -250,6 +268,52 @@
 				18D41DF52561EB4800658A6B /* ImageTitleTableViewCell.xib */,
 			);
 			path = SubViews;
+			sourceTree = "<group>";
+		};
+		18D41DF82562086D00658A6B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				18D41E0A25620D3A00658A6B /* Extensions */,
+				18D41E03256208D000658A6B /* Protocols */,
+				18D41DF92562088100658A6B /* ViewComponents */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		18D41DF92562088100658A6B /* ViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				18D41DFA256208AD00658A6B /* CategoryView */,
+			);
+			path = ViewComponents;
+			sourceTree = "<group>";
+		};
+		18D41DFA256208AD00658A6B /* CategoryView */ = {
+			isa = PBXGroup;
+			children = (
+				18D41DFB256208AD00658A6B /* CategoryView.swift */,
+				18D41DFC256208AD00658A6B /* CategoryView.xib */,
+				18D41DFD256208AD00658A6B /* CategoryTableViewCell.swift */,
+				18D41DFE256208AD00658A6B /* CategoryTableViewCell.xib */,
+			);
+			path = CategoryView;
+			sourceTree = "<group>";
+		};
+		18D41E03256208D000658A6B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				18D41E052562090000658A6B /* Modal.swift */,
+				18D41E042562090000658A6B /* NibLoadable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		18D41E0A25620D3A00658A6B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				18D41E0B25620D5200658A6B /* Extension+UIView.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		9AE5B747C3CDD6346DE907B0 /* Pods */ = {
@@ -384,6 +448,8 @@
 			files = (
 				18D41DF72561EB4800658A6B /* ImageTitleTableViewCell.xib in Resources */,
 				183D09B82560ECCA009BDBF5 /* LaunchScreen.storyboard in Resources */,
+				18D41E00256208AD00658A6B /* CategoryView.xib in Resources */,
+				18D41E02256208AD00658A6B /* CategoryTableViewCell.xib in Resources */,
 				18D41DF32561E9F300658A6B /* TitleHeaderFooterView.xib in Resources */,
 				183D09B52560ECCA009BDBF5 /* Assets.xcassets in Resources */,
 			);
@@ -479,16 +545,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18D41E092562095100658A6B /* SortItem.swift in Sources */,
+				18D41E0C25620D5200658A6B /* Extension+UIView.swift in Sources */,
 				18D41DE525612E4200658A6B /* SearchInteractor.swift in Sources */,
+				18D41E072562090000658A6B /* Modal.swift in Sources */,
 				18D41DE425612E4200658A6B /* SearchViewController.swift in Sources */,
+				18D41DFF256208AD00658A6B /* CategoryView.swift in Sources */,
 				18D41DE225612E4200658A6B /* SearchModule.swift in Sources */,
 				18D41DE625612E4200658A6B /* SearchRouter.swift in Sources */,
 				18D41DF12561E90000658A6B /* TitleHeaderFooterView.swift in Sources */,
 				18D41DEC2561CF5A00658A6B /* GithubServiceProtocol.swift in Sources */,
 				18D41DEE2561D07800658A6B /* GithubService.swift in Sources */,
 				18D41DE325612E4200658A6B /* SearchPresenter.swift in Sources */,
+				18D41E062562090000658A6B /* NibLoadable.swift in Sources */,
 				183D09AE2560ECC7009BDBF5 /* AppDelegate.swift in Sources */,
 				18D41DF62561EB4800658A6B /* ImageTitleTableViewCell.swift in Sources */,
+				18D41E01256208AD00658A6B /* CategoryTableViewCell.swift in Sources */,
 				18D41DEA2561CE0C00658A6B /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

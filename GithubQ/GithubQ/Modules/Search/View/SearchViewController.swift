@@ -35,6 +35,7 @@ class SearchViewController: UIViewController {
     private let _searchBlockDelay: TimeInterval = 0.5
     private var _page = 1
     private var _obsUserResponse: BehaviorRelay<UserResponse?>?
+    private var _obsSortOption: BehaviorRelay<[SortItem]>?
     
     // MARK: Outlets
     var searchBar = UISearchBar(frame: .zero)
@@ -73,6 +74,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         
         _obsUserResponse = presenter.getObsUserResponse()
+        _obsSortOption = presenter.getObsSortOption()
         
         presenter.viewLoaded()
         _setupView()
@@ -147,7 +149,13 @@ class SearchViewController: UIViewController {
     
     // MARK: Outlet Action
     @objc private func _sortButtonTapped(sender: UIBarButtonItem) {
-        print("Sort here")
+        let categoryView = CategoryView(frame: UIScreen.main.bounds)
+        if let option = _obsSortOption {
+            categoryView.setupView(option)
+        }
+        
+        categoryView.delegate = self
+        categoryView.show(animated: true, alpha: 0.66)
     }
 }
 
@@ -203,5 +211,13 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "TitleHeaderFooterView") as? TitleHeaderFooterView else { return nil }
         headerView.titleLabel.text = searchBar.text?.isEmpty ?? true ? "" : "Total results \(_obsUserResponse?.value?.totalCount ?? 0)"
         return headerView
+    }
+}
+
+extension SearchViewController: CategoryViewProtocol {
+    
+    // MARK: - CategoryViewProtocol
+    func didSelectCategory(index: Int) {
+        presenter.setSort(index: index)
     }
 }

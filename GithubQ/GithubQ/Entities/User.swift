@@ -11,7 +11,7 @@ import Foundation
 struct UserResponse: Codable {
     let totalCount: Int
     let incompleteResults: Bool
-    let items: [User]
+    var items: [User]
 }
 
 struct User: Codable {
